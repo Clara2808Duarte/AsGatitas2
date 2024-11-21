@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="poke.css">
+    <title>BUSCAR POKÉMON</title>
+
+</head>
+<body>
+    <h1 class="h1" >BUSCAR POKÉMON</h1>
+
+    <input  type="text" id="pokemonName" placeholder="Digite o nome ou  ID do Pokémon" />
+    <button onclick="fetchPokemon()"> BUSCAR </button>
+
+    <p id="loadingMessage" style="display: none;"> Carregando...</p>
+    <div id="errorMessage" style="display: none;"></div>
+
+    <div class="pokemon-info" id="pokemonInfo" style="display: none;" > 
+        <h2 id="pokemonTitle"></h2>
+        <img id="pokemonImage" src="" alt="Imagem do Pokémon" />
+        <p><strong>Altura: </strong> <span id="pokemonHeight"></span> metros </p>
+        <p><strong>Peso: </strong> <span id="pokemonWeight"></span> kg </p>
+        <p><strong>Habilidades: </strong> <span id="pokemonAbilities"></span></p>
+        <p><strong>Tipos: </strong> <span id="pokemonTypes"></span></p>
+    </div>
+
+    <script>
+        async function fetchPokemon() {
+            const pokemonName = document.getElementById('pokemonName').value.trim()
+            if(!pokemonName) {
+                document.getElementById('errorMessage').textContent =  'Por favor, digite o nome ou ID de um Pokémon'
+                document.getElementById('errorMessage').style.display = 'block'
+                return
+            }
+
+            document.getElementById('errorMessage').style.display = 'none'
+            document.getElementById('loadingMessage').style.display = 'block'
+
+            try {
+                const response = await fetch(`http://localhost:3000/pokemon/${pokemonName.toLowerCase()}`)
+                if(!response.ok) throw new Error('Pokémon não encontrado.')
+                
+                const data = await response.json()
+
+                document.getElementById('pokemonInfo').style.display = 'block'
+                document.getElementById('pokemonTitle').textContent = data.name
+                document.getElementById('pokemonImage').src = data.image
+                document.getElementById('pokemonImage').alt = `Imagem de ${data.name}`
+                document.getElementById('pokemonHeight').textContent = data.height
+                document.getElementById('pokemonWeight').textContent = data.weight
+                document.getElementById('pokemonAbilities').textContent = data.abilities
+                document.getElementById('pokemonTypes').textContent = data.types
+             }
+
+             catch (error) {
+                document.getElementById('errorMessage').textContent = error.message
+                document.getElementById('errorMessage').style.display = 'block'
+                document.getElementById('pokemonInfo').style.display = 'none'
+             }
+
+             finally {
+                document.getElementById('loadingMessage').style.display = 'none'
+             }   
+        }
+
+    </script>
+
+</body>
+</html>

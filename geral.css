@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 150%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+  justify-content: end;
+}
+
+.navegacao {
+  display: flex;
+  padding: 1%;
+  flex-direction: column;
+  gap: calc(20px + 10%);
+  justify-content: center;
+  padding: 10%;
+}
+
+.junt {
+  text-align: center;
+  background-color: #ddd;
+  padding: 30px;
+  box-shadow: 0 4px 12px #ddd;
+  width: 100%;
+  max-width: 400px;
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  background-color: #ddd;
+}

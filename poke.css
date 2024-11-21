@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.pokemon-info, #errorMessage {
+    margin-top: 20px;
+    padding: 15px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pokemonImage {
+    width: 150px;
+    height: auto;
+}
+
+#errorMessage {
+    color: purple;
+}
