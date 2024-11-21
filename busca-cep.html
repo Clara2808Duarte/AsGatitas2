@@ -8,12 +8,15 @@
 
 </head>
 <body>
-    <h1 class="h1" >BUSCAR ENDEREÇO POR CEP</h1>
 
+    <h1>BUSCAR ENDEREÇO POR CEP</h1>
+
+    <section class="junt">
     <input  type="text" id="cep" placeholder="Digite o CEP" />
     <button onclick="buscarEndereco()"> BUSCAR </button>
+    </section>
 
-    <div id="enderecoInfo" class="endereco-info" style="display: none;" > 
+    <div id="enderecoInfo" class="navegacao" style="display: none;" > 
         <p><strong> Logradouro: </strong> <span id="logradouro"></span></p>
         <p><strong> Bairro: </strong> <span id="bairro"></span></p>
         <p><strong> Cidade: </strong> <span id="localidade"></span></p>
