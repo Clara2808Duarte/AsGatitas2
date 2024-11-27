@@ -40,4 +40,9 @@ async function fetchTop10Pokemon() {
     }   
 }
 
+<<<<<<< HEAD
 fetchTop10Pokemon()
+=======
+fetchTop10Pokemon()
+
+>>>>>>> 5d02ecfa31a688d9a5a758d2fbdd2a8cd08c1b5b
